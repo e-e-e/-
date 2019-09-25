@@ -1,0 +1,50 @@
+#!/bin/bash
+
+DEST=org.mpris.MediaPlayer2.spotify
+OBJECT_PATH=/org/mpris/MediaPlayer2
+MSG_PREFIX=org.mpris.MediaPlayer2.Player
+
+function next () {
+	echo ' ';
+	if [ "$BLOCK_BUTTON" = 1 ]; then
+		dbus-send --type=method_call --dest=$DEST $OBJECT_PATH $MSG_PREFIX.Next	
+	fi
+}
+
+function prev () {
+        echo ' ';
+        if [ "$BLOCK_BUTTON" = 1 ]; then
+                dbus-send --type=method_call --dest=$DEST $OBJECT_PATH $MSG_PREFIX.Previous
+        fi
+}
+function play () {
+	status=$(dbus-send --print-reply \
+			--dest=$DEST $OBJECT_PATH \
+			org.freedesktop.DBus.Properties.Get \
+			string:"$MSG_PREFIX" string:'PlaybackStatus' \
+		  	| sed -nE "s/.* string \"(\w*).*\"/\1/ p"
+	);
+
+	if [ "$status" = "Playing" ]; then
+		echo ' ';	
+	elif [ "$status" = "Paused" ]; then
+        	echo ' ';
+	else
+		echo ' ';
+	fi
+	if [ -z "$status" ]; then
+      		if [ "$BLOCK_BUTTON" = 1  ]; then
+             	   i3-msg exec spotify
+        	fi
+	else
+		if [ "$BLOCK_BUTTON" = 1  ]; then
+             	   dbus-send --print-reply --dest=$DEST $OBJECT_PATH $MSG_PREFIX.PlayPause
+        	fi
+	fi
+}
+
+case "$1" in
+	next) next ;;
+	prev) prev ;;
+	play) play ;;	
+esac

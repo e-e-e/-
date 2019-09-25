@@ -1,0 +1,24 @@
+#!/bin/bash
+
+dpms=$(xset q | sed -n -E "s/\s+DPMS is (\w+)/\1/ p")
+
+echo " ";
+echo " ";
+
+if [ "$BLOCK_BUTTON" = 1 ]; then
+	case "$dpms" in
+        	Enabled) 
+			xset -dpms s off;;
+        	Disabled)
+                	xset +dpms s on;;
+	esac
+	dpms=$(xset q | sed -n -E "s/\s+DPMS is (\w+)/\1/ p")
+fi
+
+case "$dpms" in
+	Enabled) 
+		echo "#FFFFFF";;
+	Disabled)
+		echo "#00FF00";;
+esac
+

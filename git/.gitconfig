@@ -1,0 +1,20 @@
+[alias]
+
+  a = add
+  b = branch
+  c = commit
+  d = diff
+  f = fetch
+  l = log
+  m = merge
+  co = checkout
+  p = pull
+  u = push
+  w = whatchanged
+  save = stash save
+  pop = stash pop
+  drop = stash drop
+
+[core]
+        editor = vim
+
