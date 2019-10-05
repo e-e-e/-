@@ -1,0 +1,31 @@
+[legacy/profiles:]
+list=['ef64db67-f57c-4f64-98ed-fbc0f779c85b']
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,0,0)'
+bold-is-bright=true
+palette=['rgb(0,0,0)', 'rgb(170,0,0)', 'rgb(0,170,0)', 'rgb(170,85,0)', 'rgb(0,0,170)', 'rgb(170,0,170)', 'rgb(0,170,170)', 'rgb(170,170,170)', 'rgb(85,85,85)', 'rgb(255,85,85)', 'rgb(85,255,85)', 'rgb(255,255,85)', 'rgb(85,85,255)', 'rgb(255,85,255)', 'rgb(85,255,255)', 'rgb(255,255,255)']
+use-theme-transparency=false
+foreground-color='rgb(255,255,255)'
+audible-bell=false
+use-theme-colors=false
+
+[legacy/profiles:/:ef64db67-f57c-4f64-98ed-fbc0f779c85b]
+foreground-color='rgb(148,163,165)'
+visible-name='Dracula'
+login-shell=true
+palette=['rgb(68,71,90)', 'rgb(255,85,85)', 'rgb(80,250,123)', 'rgb(255,184,108)', 'rgb(139,233,253)', 'rgb(189,147,249)', 'rgb(255,121,198)', 'rgb(148,163,165)', 'rgb(0,0,0)', 'rgb(255,85,85)', 'rgb(80,250,123)', 'rgb(255,184,108)', 'rgb(139,233,253)', 'rgb(189,147,249)', 'rgb(255,121,198)', 'rgb(255,255,255)']
+bold-is-bright=true
+use-system-font=false
+use-custom-command=false
+use-theme-colors=false
+font='Operator Mono weight=330 12'
+use-theme-transparency=false
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#9494A3A3A5A5'
+background-color='rgb(40,42,54)'
+audible-bell=false
+
+[legacy]
+schema-version=uint32 3
