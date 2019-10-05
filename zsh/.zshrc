@@ -131,3 +131,14 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function fetch_git_status() {
+    if [[ -z $BUFFER ]] then
+        git rev-parse --git-dir > /dev/null 2>&1 && git status;
+    fi
+    zle accept-line
+}
+
+zle -N fetch_git_status
+bindkey "^M" fetch_git_status
+
