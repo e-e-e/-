@@ -130,10 +130,13 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Show git status when user hits return, if user is in a git repository
 function fetch_git_status() {
-    if [[ -z $BUFFER ]] then
+    if [[ -z $BUFFER ]] && command -v git > /dev/null 2>&1; then
+	echo;
         git rev-parse --git-dir > /dev/null 2>&1 && git status;
     fi
     zle accept-line
@@ -142,3 +145,11 @@ function fetch_git_status() {
 zle -N fetch_git_status
 bindkey "^M" fetch_git_status
 
+# Set style for less
+export LESS_TERMCAP_mb=$'\e[1;32m' # start blink
+export LESS_TERMCAP_md=$'\e[1;32m' # start bold
+export LESS_TERMCAP_me=$'\e[0m' # end bold/blink
+export LESS_TERMCAP_se=$'\e[0m' # end standout
+export LESS_TERMCAP_so=$'\e[01;3;35m' # start standout
+export LESS_TERMCAP_ue=$'\e[0m' # end underline
+export LESS_TERMCAP_us=$'\e[1;3;31m' # start underline
