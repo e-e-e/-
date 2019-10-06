@@ -136,8 +136,7 @@ zle -N zle-keymap-select
 # Show git status when user hits return, if user is in a git repository
 function fetch_git_status() {
     if [[ -z $BUFFER ]] && command -v git > /dev/null 2>&1; then
-	echo;
-        git rev-parse --git-dir > /dev/null 2>&1 && git status;
+        git rev-parse --git-dir > /dev/null 2>&1 && echo && git status;
     fi
     zle accept-line
 }
