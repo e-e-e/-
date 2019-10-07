@@ -1,4 +1,4 @@
-# Notes:
+# Backup for terminal settings:
 
 ### Ubuntu Terminal Settings
 
