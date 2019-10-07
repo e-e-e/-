@@ -1,0 +1,34 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "a cli for installing and updating my dotfiles",
+  "main": "cli.js",
+  "private": true,
+  "bin": {
+    "dotfiles": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-e-e/dotfiles.git"
+  },
+  "keywords": [
+    "dotfiles"
+  ],
+  "author": "e-e-e",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/e-e-e/dotfiles/issues"
+  },
+  "homepage": "https://github.com/e-e-e/dotfiles#readme",
+  "dependencies": {
+    "commander": "^3.0.2",
+    "inquirer": "^7.0.0",
+    "shelljs": "^0.8.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1"
+  }
+}
