@@ -45,10 +45,15 @@ const installs = {
       shell.cp(path.resolve(DOTFILES_DIR, "tmux/.tmux.conf"), HOME);
       // copy plugins into ~/.tmux/
       maybeExit();
+
+      const homeTmuxDir = path.resolve(HOME, "./.tmux/");
+
+      shell.mkdir("-p", homeTmuxDir);
+
       shell.cp(
-        "-r",
+        "-R",
         path.resolve(DOTFILES_DIR, "tmux/plugins"),
-        path.resolve(HOME, "./.tmux/plugins")
+        homeTmuxDir
       );
       maybeExit();
     }
