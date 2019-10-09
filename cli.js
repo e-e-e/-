@@ -25,6 +25,15 @@ function maybeExit() {
 }
 
 const installs = {
+  vim: {
+    name: "vim",
+    exists: () => fileExistsInUsersHomeDir(".vimrc"),
+    install: async () => {
+      // copy .vimrc to ~/.vimrc
+      shell.cp(path.resolve(DOTFILES_DIR, "vim/.vimrc"), HOME);
+      maybeExit();
+    }
+  },
   git: {
     name: "git",
     exists: () => fileExistsInUsersHomeDir(".gitconfig"),
@@ -50,11 +59,7 @@ const installs = {
 
       shell.mkdir("-p", homeTmuxDir);
 
-      shell.cp(
-        "-R",
-        path.resolve(DOTFILES_DIR, "tmux/plugins"),
-        homeTmuxDir
-      );
+      shell.cp("-R", path.resolve(DOTFILES_DIR, "tmux/plugins"), homeTmuxDir);
       maybeExit();
     }
   },
