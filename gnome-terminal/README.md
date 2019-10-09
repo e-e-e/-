@@ -1,6 +1,6 @@
 # Backup for terminal settings:
 
-### Ubuntu Terminal Settings
+The following commands are used to save, reset and restore **Gnome Terminal** settings.
 
 ```
 # Backup terminal settings
