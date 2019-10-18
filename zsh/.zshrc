@@ -144,6 +144,11 @@ function fetch_git_status() {
 zle -N fetch_git_status
 bindkey "^M" fetch_git_status
 
+# reset some alias'
+
+# remove git alias for git merge
+unalias gm
+
 # Set style for less
 export LESS_TERMCAP_mb=$'\e[1;32m' # start blink
 export LESS_TERMCAP_md=$'\e[1;32m' # start bold
