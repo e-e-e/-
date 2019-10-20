@@ -27,10 +27,17 @@ function maybeExit() {
 const installs = {
   vim: {
     name: "vim",
-    exists: () => fileExistsInUsersHomeDir(".vimrc"),
+    exists: () => [".vimrc", ".vim"].some(fileExistsInUsersHomeDir),
     install: async () => {
       // copy .vimrc to ~/.vimrc
       shell.cp(path.resolve(DOTFILES_DIR, "vim/.vimrc"), HOME);
+      // make colors dir if it does not exist ~/.vim/colors
+      const homeVimDir = path.resolve(HOME, "./.vim")
+      shell.mkdir("-p", homeVimDir);
+      // copy dracula theme to vim directory
+      shell.cp('-R', path.resolve(DOTFILES_DIR, "vim/colors"), homeVimDir);
+      shell.cp('-R', path.resolve(DOTFILES_DIR, "vim/autoload"), homeVimDir);
+      shell.cp('-R', path.resolve(DOTFILES_DIR, "vim/after"), homeVimDir);
       maybeExit();
     }
   },

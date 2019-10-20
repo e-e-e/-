@@ -19,3 +19,6 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+" set colour scheme
+colorscheme dracula
